@@ -129,7 +129,7 @@
                             <th>Kendaraan</th>
                             <th>Keluhan</th>
                             <th>Status</th>
-                            
+                            <th>Aksi</th>
                         </tr>
                     </thead>
 
@@ -155,6 +155,29 @@
                                 <span class="badge-status">
                                     Diproses
                                 </span>
+                            </td>
+
+                            <td class="d-flex gap-2">
+
+                                <a href="/kendaraan/{{ $item->id }}/edit"
+                                    class="btn btn-edit btn-sm">
+                                    Edit
+                                </a>
+
+                                <form action="/kendaraan/{{ $item->id }}"
+                                    method="POST"
+                                    onsubmit="return confirm('Yakin ingin menghapus data?')">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit"
+                                        class="btn btn-delete btn-sm">
+                                        Hapus
+                                    </button>
+
+                                </form>
+
                             </td>
 
                         </tr>
